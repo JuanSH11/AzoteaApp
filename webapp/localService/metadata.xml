@@ -1,0 +1,258 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="64647035a0319529191b2a30" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="64647035a0319529191b2a30_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="PlatoSet" EntityType="64647035a0319529191b2a30.Plato" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="PlatoReviewsReview" Association="64647035a0319529191b2a30.PlatoReviewsReview" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PlatoSet" Role="FromRole_PlatoReviewsReview"/>
+                    <End EntitySet="ReviewSet" Role="ToRole_PlatoReviewsReview"/>
+                </AssociationSet>
+                <AssociationSet Name="PlatoRecetaPlatoReceta" Association="64647035a0319529191b2a30.PlatoRecetaPlatoReceta" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PlatoSet" Role="FromRole_PlatoRecetaPlatoReceta"/>
+                    <End EntitySet="RecetaSet" Role="ToRole_PlatoRecetaPlatoReceta"/>
+                </AssociationSet>
+                <AssociationSet Name="PlatoVentasVentas" Association="64647035a0319529191b2a30.PlatoVentasVentas" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="PlatoSet" Role="FromRole_PlatoVentasVentas"/>
+                    <End EntitySet="VentasSet" Role="ToRole_PlatoVentasVentas"/>
+                </AssociationSet>
+                <EntitySet Name="RecetaSet" EntityType="64647035a0319529191b2a30.Receta" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="RecetaPlatoRecetaPlato" Association="64647035a0319529191b2a30.RecetaPlatoRecetaPlato" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="RecetaSet" Role="FromRole_RecetaPlatoRecetaPlato"/>
+                    <End EntitySet="PlatoSet" Role="ToRole_RecetaPlatoRecetaPlato"/>
+                </AssociationSet>
+                <AssociationSet Name="RecetaIngredienteRecetaIngrediente" Association="64647035a0319529191b2a30.RecetaIngredienteRecetaIngrediente" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="RecetaSet" Role="FromRole_RecetaIngredienteRecetaIngrediente"/>
+                    <End EntitySet="IngredienteSet" Role="ToRole_RecetaIngredienteRecetaIngrediente"/>
+                </AssociationSet>
+                <EntitySet Name="IngredienteSet" EntityType="64647035a0319529191b2a30.Ingrediente" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="IngredienteRecetaIngredienteReceta" Association="64647035a0319529191b2a30.IngredienteRecetaIngredienteReceta" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="IngredienteSet" Role="FromRole_IngredienteRecetaIngredienteReceta"/>
+                    <End EntitySet="RecetaSet" Role="ToRole_IngredienteRecetaIngredienteReceta"/>
+                </AssociationSet>
+                <AssociationSet Name="IngredienteProveedorProveedor" Association="64647035a0319529191b2a30.IngredienteProveedorProveedor" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="IngredienteSet" Role="FromRole_IngredienteProveedorProveedor"/>
+                    <End EntitySet="ProveedorSet" Role="ToRole_IngredienteProveedorProveedor"/>
+                </AssociationSet>
+                <EntitySet Name="ReviewSet" EntityType="64647035a0319529191b2a30.Review" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="ReviewPlatoPlato" Association="64647035a0319529191b2a30.ReviewPlatoPlato" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ReviewSet" Role="FromRole_ReviewPlatoPlato"/>
+                    <End EntitySet="PlatoSet" Role="ToRole_ReviewPlatoPlato"/>
+                </AssociationSet>
+                <EntitySet Name="ProveedorSet" EntityType="64647035a0319529191b2a30.Proveedor" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="ProveedorIngredienteIngrediente" Association="64647035a0319529191b2a30.ProveedorIngredienteIngrediente" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ProveedorSet" Role="FromRole_ProveedorIngredienteIngrediente"/>
+                    <End EntitySet="IngredienteSet" Role="ToRole_ProveedorIngredienteIngrediente"/>
+                </AssociationSet>
+                <EntitySet Name="VentasSet" EntityType="64647035a0319529191b2a30.Ventas" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="VentasPlatoPlato" Association="64647035a0319529191b2a30.VentasPlatoPlato" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="VentasSet" Role="FromRole_VentasPlatoPlato"/>
+                    <End EntitySet="PlatoSet" Role="ToRole_VentasPlatoPlato"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="Plato">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Nombre"/>
+                <Property Name="Categoria" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Categoria"/>
+                <Property Name="Precio" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Precio"/>
+                <Property Name="Currency" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Currency"/>
+                <Property Name="ProductImage" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ProductImage"/>
+                <Property Name="StockLevel" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="StockLevel"/>
+                <Property Name="StockLevelCC" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="StockLevelCC"/>
+                <Property Name="Costo" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Costo"/>
+                <NavigationProperty Name="Reviews" Relationship="64647035a0319529191b2a30.PlatoReviewsReview" FromRole="FromRole_PlatoReviewsReview" ToRole="ToRole_PlatoReviewsReview"/>
+                <NavigationProperty Name="RecetaPlato" Relationship="64647035a0319529191b2a30.PlatoRecetaPlatoReceta" FromRole="FromRole_PlatoRecetaPlatoReceta" ToRole="ToRole_PlatoRecetaPlatoReceta"/>
+                <NavigationProperty Name="Ventas" Relationship="64647035a0319529191b2a30.PlatoVentasVentas" FromRole="FromRole_PlatoVentasVentas" ToRole="ToRole_PlatoVentasVentas"/>
+            </EntityType>
+            <Association Name="PlatoReviewsReview">
+                <End Type="64647035a0319529191b2a30.Plato" Multiplicity="1" Role="FromRole_PlatoReviewsReview"/>
+                <End Type="64647035a0319529191b2a30.Review" Multiplicity="*" Role="ToRole_PlatoReviewsReview"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_PlatoReviewsReview">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_PlatoReviewsReview">
+                        <PropertyRef Name="___FK_a15352050abe4f92191c1642_00039"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PlatoRecetaPlatoReceta">
+                <End Type="64647035a0319529191b2a30.Plato" Multiplicity="1" Role="FromRole_PlatoRecetaPlatoReceta"/>
+                <End Type="64647035a0319529191b2a30.Receta" Multiplicity="*" Role="ToRole_PlatoRecetaPlatoReceta"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_PlatoRecetaPlatoReceta">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_PlatoRecetaPlatoReceta">
+                        <PropertyRef Name="___FK_a15352050abe4f92191c1642_00041"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PlatoVentasVentas">
+                <End Type="64647035a0319529191b2a30.Plato" Multiplicity="1" Role="FromRole_PlatoVentasVentas"/>
+                <End Type="64647035a0319529191b2a30.Ventas" Multiplicity="*" Role="ToRole_PlatoVentasVentas"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_PlatoVentasVentas">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_PlatoVentasVentas">
+                        <PropertyRef Name="___FK_a15352050abe4f92191c1642_00043"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Receta">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Plato" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Plato"/>
+                <Property Name="Ingrediente" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Ingrediente"/>
+                <Property Name="___FK_a15352050abe4f92191c1642_00041" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_a15352050abe4f92191c1642_00041"/>
+                <Property Name="___FK_a15352050abe4f92191c1642_00045" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_a15352050abe4f92191c1642_00045"/>
+                <Property Name="___FK_a15352050abe4f92191c1642_00047" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_a15352050abe4f92191c1642_00047"/>
+                <Property Name="___FK_a15352050abe4f92191c1642_00051" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_a15352050abe4f92191c1642_00051"/>
+                <NavigationProperty Name="PlatoReceta" Relationship="64647035a0319529191b2a30.RecetaPlatoRecetaPlato" FromRole="FromRole_RecetaPlatoRecetaPlato" ToRole="ToRole_RecetaPlatoRecetaPlato"/>
+                <NavigationProperty Name="IngredienteReceta" Relationship="64647035a0319529191b2a30.RecetaIngredienteRecetaIngrediente" FromRole="FromRole_RecetaIngredienteRecetaIngrediente" ToRole="ToRole_RecetaIngredienteRecetaIngrediente"/>
+            </EntityType>
+            <Association Name="RecetaPlatoRecetaPlato">
+                <End Type="64647035a0319529191b2a30.Receta" Multiplicity="1" Role="FromRole_RecetaPlatoRecetaPlato"/>
+                <End Type="64647035a0319529191b2a30.Plato" Multiplicity="1" Role="ToRole_RecetaPlatoRecetaPlato"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_RecetaPlatoRecetaPlato">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_RecetaPlatoRecetaPlato">
+                        <PropertyRef Name="___FK_a15352050abe4f92191c1642_00045"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="RecetaIngredienteRecetaIngrediente">
+                <End Type="64647035a0319529191b2a30.Receta" Multiplicity="1" Role="FromRole_RecetaIngredienteRecetaIngrediente"/>
+                <End Type="64647035a0319529191b2a30.Ingrediente" Multiplicity="1" Role="ToRole_RecetaIngredienteRecetaIngrediente"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_RecetaIngredienteRecetaIngrediente">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_RecetaIngredienteRecetaIngrediente">
+                        <PropertyRef Name="___FK_a15352050abe4f92191c1642_00047"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Ingrediente">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Nombre"/>
+                <Property Name="StockLevel" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="StockLevel"/>
+                <Property Name="StockLevelCC" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="StockLevelCC"/>
+                <Property Name="Precio" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Precio"/>
+                <Property Name="___FK_f00f0f7288abdc9e191c49cf_00015" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_f00f0f7288abdc9e191c49cf_00015"/>
+                <Property Name="___FK_e6967776851d13e1191c4fbc_00001" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_e6967776851d13e1191c4fbc_00001"/>
+                <Property Name="Cantidad" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Cantidad"/>
+                <Property Name="Unidad" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Unidad"/>
+                <NavigationProperty Name="RecetaIngrediente" Relationship="64647035a0319529191b2a30.IngredienteRecetaIngredienteReceta" FromRole="FromRole_IngredienteRecetaIngredienteReceta" ToRole="ToRole_IngredienteRecetaIngredienteReceta"/>
+                <NavigationProperty Name="Proveedor" Relationship="64647035a0319529191b2a30.IngredienteProveedorProveedor" FromRole="FromRole_IngredienteProveedorProveedor" ToRole="ToRole_IngredienteProveedorProveedor"/>
+            </EntityType>
+            <Association Name="IngredienteRecetaIngredienteReceta">
+                <End Type="64647035a0319529191b2a30.Ingrediente" Multiplicity="1" Role="FromRole_IngredienteRecetaIngredienteReceta"/>
+                <End Type="64647035a0319529191b2a30.Receta" Multiplicity="*" Role="ToRole_IngredienteRecetaIngredienteReceta"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_IngredienteRecetaIngredienteReceta">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_IngredienteRecetaIngredienteReceta">
+                        <PropertyRef Name="___FK_a15352050abe4f92191c1642_00051"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="IngredienteProveedorProveedor">
+                <End Type="64647035a0319529191b2a30.Ingrediente" Multiplicity="1" Role="FromRole_IngredienteProveedorProveedor"/>
+                <End Type="64647035a0319529191b2a30.Proveedor" Multiplicity="1" Role="ToRole_IngredienteProveedorProveedor"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_IngredienteProveedorProveedor">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_IngredienteProveedorProveedor">
+                        <PropertyRef Name="___FK_e6967776851d13e1191c4fbc_00001"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Review">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Rating" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Rating"/>
+                <Property Name="Reviewer" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Reviewer"/>
+                <Property Name="ReviewDate" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ReviewDate"/>
+                <Property Name="ReviewText" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ReviewText"/>
+                <Property Name="___FK_a15352050abe4f92191c1642_00039" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_a15352050abe4f92191c1642_00039"/>
+                <Property Name="___FK_a15352050abe4f92191c1642_00053" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_a15352050abe4f92191c1642_00053"/>
+                <NavigationProperty Name="Plato" Relationship="64647035a0319529191b2a30.ReviewPlatoPlato" FromRole="FromRole_ReviewPlatoPlato" ToRole="ToRole_ReviewPlatoPlato"/>
+            </EntityType>
+            <Association Name="ReviewPlatoPlato">
+                <End Type="64647035a0319529191b2a30.Review" Multiplicity="1" Role="FromRole_ReviewPlatoPlato"/>
+                <End Type="64647035a0319529191b2a30.Plato" Multiplicity="1" Role="ToRole_ReviewPlatoPlato"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_ReviewPlatoPlato">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_ReviewPlatoPlato">
+                        <PropertyRef Name="___FK_a15352050abe4f92191c1642_00053"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Proveedor">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+                <Property Name="email" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="email"/>
+                <Property Name="Phone" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Phone"/>
+                <Property Name="URI" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="URI"/>
+                <NavigationProperty Name="Ingrediente" Relationship="64647035a0319529191b2a30.ProveedorIngredienteIngrediente" FromRole="FromRole_ProveedorIngredienteIngrediente" ToRole="ToRole_ProveedorIngredienteIngrediente"/>
+            </EntityType>
+            <Association Name="ProveedorIngredienteIngrediente">
+                <End Type="64647035a0319529191b2a30.Proveedor" Multiplicity="1" Role="FromRole_ProveedorIngredienteIngrediente"/>
+                <End Type="64647035a0319529191b2a30.Ingrediente" Multiplicity="*" Role="ToRole_ProveedorIngredienteIngrediente"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ProveedorIngredienteIngrediente">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ProveedorIngredienteIngrediente">
+                        <PropertyRef Name="___FK_f00f0f7288abdc9e191c49cf_00015"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Ventas">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Cliente" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Cliente"/>
+                <Property Name="Fecha" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Fecha"/>
+                <Property Name="Hora" Type="Edm.Time" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Hora"/>
+                <Property Name="MetodoPago" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="MetodoPago"/>
+                <Property Name="___FK_a15352050abe4f92191c1642_00043" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_a15352050abe4f92191c1642_00043"/>
+                <Property Name="___FK_a15352050abe4f92191c1642_00057" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_a15352050abe4f92191c1642_00057"/>
+                <NavigationProperty Name="Plato" Relationship="64647035a0319529191b2a30.VentasPlatoPlato" FromRole="FromRole_VentasPlatoPlato" ToRole="ToRole_VentasPlatoPlato"/>
+            </EntityType>
+            <Association Name="VentasPlatoPlato">
+                <End Type="64647035a0319529191b2a30.Ventas" Multiplicity="1" Role="FromRole_VentasPlatoPlato"/>
+                <End Type="64647035a0319529191b2a30.Plato" Multiplicity="1" Role="ToRole_VentasPlatoPlato"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_VentasPlatoPlato">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_VentasPlatoPlato">
+                        <PropertyRef Name="___FK_a15352050abe4f92191c1642_00057"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

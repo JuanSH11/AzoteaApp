@@ -1,0 +1,97 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.azoteaApp.controller.ListarProveedores" xmlns:f="sap.f" xmlns:variants="sap.ui.comp.variants" xmlns="sap.m" xmlns:filterbar="sap.ui.comp.filterbar">
+    <f:DynamicPage headerExpanded="true" showFooter="false" class="sapUiSizeCompact">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <variants:VariantManagement/>
+                </f:heading>
+                <f:actions>
+                    <ToolbarSpacer/>
+                    <Button icon="sap-icon://action" type="Transparent"/>
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader pinnable="true">
+                <f:content>
+                    <filterbar:FilterBar id="ListReportFilterBar" useToolbar="false" showGoOnFB="true" searchEnabled="true">
+                        <filterbar:filterItems>
+                            <filterbar:FilterItem label="Filter 1" name="Fiori_ListReport_ListReport_0-filterBars-Fiori_ListReport_FilterBar-1-filters-Fiori_ListReport_StandardFilter-1---0">
+                                <filterbar:control>
+                                    <MultiInput/>
+                                </filterbar:control>
+                            </filterbar:FilterItem>
+                        </filterbar:filterItems>
+                    </filterbar:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <VBox fitContainer="true">
+                <items>
+                    <SegmentedButton width="auto" enabled="true" visible="true">
+                        <items>
+                            <SegmentedButtonItem icon="sap-icon://taxi" text="Platos" width="auto" enabled="true" press="_onSegmentedButtonItemPress"/>
+                            <SegmentedButtonItem icon="sap-icon://lab" text="Ingredientes" width="auto" enabled="true" press="_onSegmentedButtonItemPress1"/>
+                        </items>
+                    </SegmentedButton>
+                    <Table width="100%" growing="true" growingScrollToLoad="true" growingThreshold="25" mode="SingleSelectLeft" itemPress="_onFioriListReportTableItemPress" updateFinished="_onFioriListReportTableUpdateFinished" items="{path:'/ProveedorSet', templateShareable:true}">
+                        <headerToolbar>
+                            <OverflowToolbar design="Transparent">
+                                <content>
+                                    <Title textAlign="Begin" text="Proveedores"/>
+                                    <Title text="(1)"/>
+                                    <ToolbarSpacer/>
+                                    <Button text="Delete" iconFirst="false" type="Transparent" enabled="true" press="_onFioriListReportActionButtonPress">
+                                        <layoutData>
+                                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                                        </layoutData>
+                                    </Button>
+                                    <Button text="" icon="sap-icon://add" iconFirst="true" type="Transparent" enabled="true" press="_onFioriListReportActionButtonPress1">
+                                        <layoutData>
+                                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                                        </layoutData>
+                                    </Button>
+                                    <Button icon="sap-icon://action-settings" type="Transparent">
+                                        <layoutData>
+                                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                                        </layoutData>
+                                    </Button>
+                                </content>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column width="auto" minScreenWidth="Phone">
+                                <header>
+                                    <Text text="Nombre" width="auto"/>
+                                </header>
+                            </Column>
+                            <Column width="auto" minScreenWidth="Phone">
+                                <header>
+                                    <Text text="Email" width="auto"/>
+                                </header>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem type="Navigation">
+                                <cells>
+                                    <ObjectIdentifier title="{Name}" text="{ID}"/>
+                                    <ObjectStatus text="{email}" width="auto"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </items>
+            </VBox>
+        </f:content>
+        <f:footer>
+            <OverflowToolbar design="auto">
+                <content>
+                    <ToolbarSpacer/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
+</mvc:View>

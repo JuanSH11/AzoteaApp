@@ -1,0 +1,142 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.azoteaApp.controller.VerPlato" xmlns:uxap="sap.uxap" xmlns="sap.m">
+    <uxap:ObjectPageLayout showTitleInHeaderContent="false" showHeaderContent="true" showEditHeaderButton="false" showFooter="false" class="sapUiSizeCompact">
+        <uxap:headerTitle>
+            <uxap:ObjectPageHeader objectTitle="{Nombre}" objectSubtitle="{ID}" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="true" isObjectSubtitleAlwaysVisible="true" showPlaceholder="true" objectImageURI="/build/uilibraries/content/static/image-canvas.svg">
+                <uxap:navigationBar>
+                    <Bar>
+                        <contentLeft>
+                            <Button type="Back" press="_onFioriObjectPageHeaderPress"/>
+                        </contentLeft>
+                        <contentMiddle>
+                            <Title text="Plato"/>
+                        </contentMiddle>
+                        <contentRight/>
+                    </Bar>
+                </uxap:navigationBar>
+                <uxap:actions>
+                    <Button text="Edit" iconFirst="false" type="Emphasized" enabled="true" press="_onFioriObjectPageActionButtonPress">
+                        <layoutData>
+                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                        </layoutData>
+                    </Button>
+                    <Button text="Delete" iconFirst="false" type="Transparent" enabled="true" press="_onFioriObjectPageActionButtonPress1">
+                        <layoutData>
+                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                        </layoutData>
+                    </Button>
+                    <Button text="Analítica" iconFirst="false" type="Transparent" enabled="true" press="_onFioriObjectPageActionButtonPress2">
+                        <layoutData>
+                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                        </layoutData>
+                    </Button>
+                </uxap:actions>
+                <uxap:breadCrumbsLinks/>
+            </uxap:ObjectPageHeader>
+        </uxap:headerTitle>
+        <uxap:headerContent>
+            <Image src="{ProductImage}" height="100px" width="100px" visible="true" densityAware="false"/>
+            <VBox>
+                <items>
+                    <Title text="Disponibilidad"/>
+                    <ObjectNumber number="{path:'StockLevel', formatter:'.formatFractionDigitFromValue'}" unit="" state="{path:'StockLevelCC', formatter:'.formatStateFromCriticality'}"/>
+                </items>
+            </VBox>
+            <VBox>
+                <items>
+                    <Title text="Precio"/>
+                    <ObjectNumber number="{path:'Precio', formatter:'.formatFractionDigitFromValue'}" unit="{Currency}" state="None"/>
+                </items>
+            </VBox>
+            <VBox>
+                <items>
+                    <Title text="Costo"/>
+                    <ObjectNumber number="{path:'Costo', formatter:'.formatFractionDigitFromValue'}" unit="{Currency}" state="None"/>
+                </items>
+            </VBox>
+        </uxap:headerContent>
+        <uxap:sections>
+            <uxap:ObjectPageSection title="Ventas">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Ventas">
+                        <uxap:blocks>
+                            <Table width="100%" growing="true" growingScrollToLoad="true" growingThreshold="25" mode="None" items="{path:'Ventas', templateShareable:true}">
+                                <headerToolbar>
+                                    <OverflowToolbar design="Transparent">
+                                        <content>
+                                            <ToolbarSpacer/>
+                                            <Button icon="sap-icon://action-settings" type="Transparent">
+                                                <layoutData>
+                                                    <OverflowToolbarLayoutData moveToOverflow="true"/>
+                                                </layoutData>
+                                            </Button>
+                                        </content>
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column width="40px" hAlign="Left" vAlign="Middle" popinDisplay="Inline" mergeDuplicates="false" demandPopin="true" minScreenWidth="Tablet">
+                                        <header>
+                                            <Text text="ID"/>
+                                        </header>
+                                    </Column>
+                                    <Column width="auto" minScreenWidth="Phone">
+                                        <header>
+                                            <Text text="Cliente" width="auto"/>
+                                        </header>
+                                    </Column>
+                                    <Column width="auto" minScreenWidth="Phone">
+                                        <header>
+                                            <Text text="Fecha" width="auto"/>
+                                        </header>
+                                    </Column>
+                                    <Column width="auto" minScreenWidth="Phone">
+                                        <header>
+                                            <Text text="Hora" width="auto"/>
+                                        </header>
+                                    </Column>
+                                    <Column width="auto" minScreenWidth="Phone">
+                                        <header>
+                                            <Text text="Método de Pago" width="auto"/>
+                                        </header>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem type="Active">
+                                        <cells>
+                                            <Text text="{ID}" width="auto" maxLines="1" wrapping="false" textAlign="Center" textDirection="Inherit" visible="true"/>
+                                            <ObjectStatus text="{Cliente}"/>
+                                            <ObjectStatus text="{Fecha}"/>
+                                            <ObjectStatus text="{path: 'Hora', type: 'sap.ui.model.odata.type.Time', formatOptions: { UTC: true, style: 'medium' }}"/>
+                                            <ObjectStatus text="{MetodoPago}"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection title="Ingredientes">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Ingredientes">
+                        <uxap:blocks>
+                            <List width="100%" growing="false" growingThreshold="20" growingScrollToLoad="false" backgroundDesign="Solid" items="{path:'RecetaPlato', templateShareable:true}">
+                                <items>
+                                    <FeedListItem icon="sap-icon://basket" sender="" text="{ID}" info="{Ingrediente}" timestamp="" iconPress="_onFeedListItemIconPress"/>
+                                </items>
+                            </List>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+        <uxap:footer>
+            <OverflowToolbar design="auto">
+                <content>
+                    <ToolbarSpacer/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </uxap:footer>
+    </uxap:ObjectPageLayout>
+</mvc:View>

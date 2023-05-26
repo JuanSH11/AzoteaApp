@@ -1,0 +1,40 @@
+{
+    "dataBinding": {
+        "/webapp/view/ListarPlatos.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/VerPlato.view.xml": {
+            "entitySet": "/PlatoSet"
+        }, 
+        "/webapp/view/VerIngrediente.view.xml": {
+            "entitySet": "/IngredienteSet"
+        }, 
+        "/webapp/view/VerProveedor.view.xml": {
+            "entitySet": "/ProveedorSet"
+        }, 
+        "/webapp/view/Analiticas.view.xml": {
+            "entitySet": "/PlatoSet"
+        }, 
+        "/webapp/view/CrearReview.view.xml": {
+            "entitySet": "/ReviewSet"
+        }, 
+        "/webapp/view/ListarIngredientes.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/ListarProveedores.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CrearPlato.view.xml": {
+            "entitySet": "/PlatoSet"
+        }, 
+        "/webapp/view/CrearIngrediente.view.xml": {
+            "entitySet": "/IngredienteSet"
+        }, 
+        "/webapp/view/CrearProveedor.view.xml": {
+            "entitySet": "/ProveedorSet"
+        }, 
+        "/webapp/view/IngresarStock.view.xml": {
+            "entitySet": "/IngredienteSet"
+        } 
+    }
+}

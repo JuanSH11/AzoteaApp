@@ -1,0 +1,99 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.azoteaApp.controller.Analiticas" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:chart="sap.chart" xmlns:data="sap.chart.data">
+    <uxap:ObjectPageLayout showTitleInHeaderContent="false" showHeaderContent="true" showEditHeaderButton="false" showFooter="false" class="sapUiSizeCompact">
+        <uxap:headerTitle>
+            <uxap:ObjectPageHeader objectTitle="{Nombre}" objectSubtitle="{ID}" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="true" isObjectSubtitleAlwaysVisible="true" showPlaceholder="false">
+                <uxap:navigationBar>
+                    <Bar>
+                        <contentLeft>
+                            <Button type="Back" press="_onFioriObjectPageHeaderPress"/>
+                        </contentLeft>
+                        <contentMiddle>
+                            <Title text="Analiticas"/>
+                        </contentMiddle>
+                        <contentRight/>
+                    </Bar>
+                </uxap:navigationBar>
+                <uxap:actions/>
+                <uxap:breadCrumbsLinks/>
+            </uxap:ObjectPageHeader>
+        </uxap:headerTitle>
+        <uxap:headerContent>
+            <VBox>
+                <items>
+                    <Title text="Precio:"/>
+                    <ObjectNumber number="{path:'Precio', formatter:'.formatFractionDigitFromValue'}" unit="Unit" state="None"/>
+                </items>
+            </VBox>
+            <VBox>
+                <items>
+                    <Title text="Nivel de stock:" margin-right="0.5rem"/>
+                    <Link text="{StockLevel}" class="sapMTitleStyleH2" press="_onFioriObjectPageHeaderContactPress">
+                        <dependents>
+                            <QuickView placement="Auto">
+                                <pages>
+                                    <QuickViewPage header="Contact Information" icon="sap-icon://person-placeholder" title="{StockLevel}" description="Research &amp; Development">
+                                        <groups>
+                                            <QuickViewGroup heading="Contact Details">
+                                                <elements>
+                                                    <QuickViewGroupElement label="Job Title" type="text" value="Developer" visible="true"/>
+                                                    <QuickViewGroupElement label="Department" type="text" value="ITelo" visible="true"/>
+                                                    <QuickViewGroupElement label="Email" type="email" value="sally.spring@itelo.info" visible="true"/>
+                                                    <QuickViewGroupElement label="Phone" type="phone" value="+ 1 224 374524" visible="true"/>
+                                                    <QuickViewGroupElement label="Mobile" type="mobile" value="+1 224 9211250" visible="true"/>
+                                                    <QuickViewGroupElement label="Fax" type="text" value="+1 224 374525" visible="true"/>
+                                                </elements>
+                                            </QuickViewGroup>
+                                        </groups>
+                                    </QuickViewPage>
+                                </pages>
+                            </QuickView>
+                        </dependents>
+                    </Link>
+                </items>
+            </VBox>
+        </uxap:headerContent>
+        <uxap:sections>
+            <uxap:ObjectPageSection title="RATING POR USUARIOS">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="RATING POR USUARIOS">
+                        <uxap:blocks>
+                            <chart:Chart id="Fiori_ObjectPage_ObjectPage_0-sections-Fiori_ObjectPage_Section-3-sectionContent-sap_chart_PieChart-1683590201711" width="100%" height="450px" visibleDimensions="Rating" visibleMeasures="MES_Rating_AVG" vizProperties="{staticDataModel>/Fiori_ObjectPage_ObjectPage_0-sections-Fiori_ObjectPage_Section-3-sectionContent-sap_chart_PieChart-1683590201711/vizProperties}" chartType="pie" selectionMode="Single" uiConfig="{}">
+                                <chart:dimensions>
+                                    <data:Dimension name="Rating" label="Rating" role="category"/>
+                                </chart:dimensions>
+                                <chart:measures>
+                                    <data:Measure name="MES_Rating_AVG" label="Rate" role="axis2"/>
+                                </chart:measures>
+                            </chart:Chart>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection title="VENTAS POR DÍA">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="VENTAS POR DÍA">
+                        <uxap:blocks>
+                            <chart:Chart id="Fiori_ObjectPage_ObjectPage_0-sections-Fiori_ObjectPage_Section-1683590604496-sectionContent-sap_chart_LineChart-1683590644086" width="100%" height="450px" visibleDimensions="__metadata/uri" visibleMeasures="ID" vizProperties="{staticDataModel>/Fiori_ObjectPage_ObjectPage_0-sections-Fiori_ObjectPage_Section-1683590604496-sectionContent-sap_chart_LineChart-1683590644086/vizProperties}" chartType="line" selectionMode="Single" uiConfig="{}">
+                                <chart:dimensions>
+                                    <data:Dimension name="__metadata/uri" label="Fecha" role="category" textProperty="Fecha"/>
+                                </chart:dimensions>
+                                <chart:measures>
+                                    <data:Measure name="ID" label="Ingresos" role="axis2"/>
+                                </chart:measures>
+                            </chart:Chart>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+        <uxap:footer>
+            <OverflowToolbar design="auto">
+                <content>
+                    <ToolbarSpacer/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </uxap:footer>
+    </uxap:ObjectPageLayout>
+</mvc:View>

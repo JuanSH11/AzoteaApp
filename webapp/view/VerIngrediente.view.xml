@@ -1,0 +1,129 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.azoteaApp.controller.VerIngrediente" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core">
+    <uxap:ObjectPageLayout showTitleInHeaderContent="false" showHeaderContent="true" showEditHeaderButton="false" showFooter="false" class="sapUiSizeCompact">
+        <uxap:headerTitle>
+            <uxap:ObjectPageHeader objectTitle="{Nombre}" objectSubtitle="{ID}" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="true" isObjectSubtitleAlwaysVisible="true" showPlaceholder="true" objectImageURI="/build/uilibraries/content/static/image-canvas.svg">
+                <uxap:navigationBar>
+                    <Bar>
+                        <contentLeft>
+                            <Button type="Back" press="_onFioriObjectPageHeaderPress"/>
+                        </contentLeft>
+                        <contentMiddle>
+                            <Title text="Ingrediente"/>
+                        </contentMiddle>
+                        <contentRight/>
+                    </Bar>
+                </uxap:navigationBar>
+                <uxap:actions>
+                    <Button text="Edit" iconFirst="false" type="Emphasized" enabled="true" press="_onFioriObjectPageActionButtonPress">
+                        <layoutData>
+                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                        </layoutData>
+                    </Button>
+                    <Button text="Delete" iconFirst="false" type="Transparent" enabled="true" press="_onFioriObjectPageActionButtonPress1">
+                        <layoutData>
+                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                        </layoutData>
+                    </Button>
+                    <Button text="Ingresar stock" icon="sap-icon://add" iconFirst="false" type="Accept" enabled="true" press="_onFioriObjectPageActionButtonPress2">
+                        <layoutData>
+                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                        </layoutData>
+                    </Button>
+                </uxap:actions>
+                <uxap:breadCrumbsLinks/>
+            </uxap:ObjectPageHeader>
+        </uxap:headerTitle>
+        <uxap:headerContent>
+            <VBox>
+                <items>
+                    <Title text="Disponibilidad"/>
+                    <ObjectNumber number="{path:'StockLevel', formatter:'.formatFractionDigitFromValue'}" unit="" state="{path:'StockLevelCC', formatter:'.formatStateFromCriticality'}"/>
+                </items>
+            </VBox>
+            <VBox>
+                <items>
+                    <Title text="Costo"/>
+                    <ObjectNumber number="{path:'Precio', formatter:'.formatFractionDigitFromValue'}" unit="COP" state="None"/>
+                </items>
+            </VBox>
+            <VBox>
+                <items>
+                    <Title text="Cantidad"/>
+                    <ObjectNumber number="{path:'Cantidad', formatter:'.formatFractionDigitFromValue'}" unit="{Unidad}" state="None"/>
+                </items>
+            </VBox>
+        </uxap:headerContent>
+        <uxap:sections>
+            <uxap:ObjectPageSection title="Proveedor">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Proveedor">
+                        <uxap:blocks>
+                            <layout:Grid defaultSpan="XL3 L4 M6 S12" class="sapUiSmallMarginTop" content="{path:'/ProveedorSet', templateShareable:true}">
+                                <layout:content>
+                                    <CustomListItem border="0" float="left" width="24rem" padding="0">
+                                        <content>
+                                            <HBox>
+                                                <items>
+                                                    <core:Icon size="2rem" src="sap-icon://person-placeholder" alt=" " class="sapUiSmallMarginTopBottom" line-height="3rem" margin-right=".75rem" font-size="2.25rem" font-weight="normal" width="3rem" height="3rem"/>
+                                                    <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+                                                        <items>
+                                                            <Link text="{ID}" font-size="1rem" margin-top="0.1rem" press="_onFioriObjectPageContactListPress">
+                                                                <dependents>
+                                                                    <QuickView placement="Auto">
+                                                                        <pages>
+                                                                            <QuickViewPage header="Contact Information" icon="sap-icon://person-placeholder" title="{ID}" description="{Name}">
+                                                                                <groups>
+                                                                                    <QuickViewGroup heading="Contact Details">
+                                                                                        <elements>
+                                                                                            <QuickViewGroupElement label="Job Title" type="text" value="{email}" visible="true"/>
+                                                                                            <QuickViewGroupElement label="Department" type="text" value="{Phone}" visible="true"/>
+                                                                                            <QuickViewGroupElement label="Email" type="email" value="{URI}" visible="true"/>
+                                                                                            <QuickViewGroupElement label="Phone" type="phone" value="+1 224 374524" visible="true"/>
+                                                                                            <QuickViewGroupElement label="Mobile" type="mobile" value="+1 224 9211250" visible="true"/>
+                                                                                            <QuickViewGroupElement label="Fax" type="text" value="+1 224 374524" visible="true"/>
+                                                                                        </elements>
+                                                                                    </QuickViewGroup>
+                                                                                </groups>
+                                                                            </QuickViewPage>
+                                                                        </pages>
+                                                                    </QuickView>
+                                                                </dependents>
+                                                            </Link>
+                                                            <Text text="{Name}" margin-top="0.3rem"/>
+                                                        </items>
+                                                    </VBox>
+                                                </items>
+                                            </HBox>
+                                        </content>
+                                    </CustomListItem>
+                                </layout:content>
+                            </layout:Grid>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection title="Platos">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Platos">
+                        <uxap:blocks>
+                            <List width="100%" growing="false" growingThreshold="20" growingScrollToLoad="false" backgroundDesign="Solid" items="{path:'RecetaIngrediente', templateShareable:true}">
+                                <items>
+                                    <FeedListItem icon="sap-icon://basket" sender="" text="{ID}" info="{Plato}" timestamp="" iconPress="_onFeedListItemIconPress"/>
+                                </items>
+                            </List>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+        <uxap:footer>
+            <OverflowToolbar design="auto">
+                <content>
+                    <ToolbarSpacer/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </uxap:footer>
+    </uxap:ObjectPageLayout>
+</mvc:View>

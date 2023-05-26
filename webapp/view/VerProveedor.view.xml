@@ -1,0 +1,140 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.azoteaApp.controller.VerProveedor" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:f="sap.f">
+    <uxap:ObjectPageLayout showTitleInHeaderContent="false" showHeaderContent="true" showEditHeaderButton="false" showFooter="false" class="sapUiSizeCompact">
+        <uxap:headerTitle>
+            <uxap:ObjectPageHeader objectTitle="{Name}" objectSubtitle="{ID}" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="true" isObjectSubtitleAlwaysVisible="true" showPlaceholder="true" objectImageURI="/build/uilibraries/content/static/image-canvas.svg">
+                <uxap:navigationBar>
+                    <Bar>
+                        <contentLeft>
+                            <Button type="Back" press="_onFioriObjectPageHeaderPress"/>
+                        </contentLeft>
+                        <contentMiddle>
+                            <Title text="Proveedor"/>
+                        </contentMiddle>
+                        <contentRight/>
+                    </Bar>
+                </uxap:navigationBar>
+                <uxap:actions>
+                    <Button text="Edit" iconFirst="false" type="Emphasized" enabled="true" press="_onFioriObjectPageActionButtonPress">
+                        <layoutData>
+                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                        </layoutData>
+                    </Button>
+                    <Button text="Delete" iconFirst="false" type="Transparent" enabled="true" press="_onFioriObjectPageActionButtonPress1">
+                        <layoutData>
+                            <OverflowToolbarLayoutData moveToOverflow="true"/>
+                        </layoutData>
+                    </Button>
+                </uxap:actions>
+                <uxap:breadCrumbsLinks/>
+            </uxap:ObjectPageHeader>
+        </uxap:headerTitle>
+        <uxap:headerContent>
+            <f:Avatar src="" initials="" displayShape="Circle" displaySize="M" imageFitType="Cover"/>
+            <VBox>
+                <items>
+                    <Title text="Telefono:" margin-right="0.5rem"/>
+                    <Link text="{Phone}" class="sapMTitleStyleH2" press="_onFioriObjectPageHeaderContactPress">
+                        <dependents>
+                            <QuickView placement="Auto">
+                                <pages>
+                                    <QuickViewPage header="Contact Information" icon="sap-icon://person-placeholder" title="{Phone}" description="Role">
+                                        <groups>
+                                            <QuickViewGroup heading="Contact Details">
+                                                <elements>
+                                                    <QuickViewGroupElement label="Job Title" type="text" value="Job title" visible="true"/>
+                                                    <QuickViewGroupElement label="Department" type="text" value="Department" visible="true"/>
+                                                    <QuickViewGroupElement label="Email" type="email" value="" visible="false"/>
+                                                    <QuickViewGroupElement label="Phone" type="phone" value="" visible="false"/>
+                                                    <QuickViewGroupElement label="Mobile" type="mobile" value="" visible="false"/>
+                                                    <QuickViewGroupElement label="Fax" type="text" value="" visible="false"/>
+                                                </elements>
+                                            </QuickViewGroup>
+                                        </groups>
+                                    </QuickViewPage>
+                                </pages>
+                            </QuickView>
+                        </dependents>
+                    </Link>
+                </items>
+            </VBox>
+            <VBox>
+                <items>
+                    <Title text="URL:" margin-right="0.5rem"/>
+                    <Link text="{URI}" class="sapMTitleStyleH2" press="_onFioriObjectPageHeaderContactPress1">
+                        <dependents>
+                            <QuickView placement="Auto">
+                                <pages>
+                                    <QuickViewPage header="Contact Information" icon="sap-icon://person-placeholder" title="{URI}" description="Role">
+                                        <groups>
+                                            <QuickViewGroup heading="Contact Details">
+                                                <elements>
+                                                    <QuickViewGroupElement label="Job Title" type="text" value="Job title" visible="true"/>
+                                                    <QuickViewGroupElement label="Department" type="text" value="Department" visible="true"/>
+                                                    <QuickViewGroupElement label="Email" type="email" value="" visible="false"/>
+                                                    <QuickViewGroupElement label="Phone" type="phone" value="" visible="false"/>
+                                                    <QuickViewGroupElement label="Mobile" type="mobile" value="" visible="false"/>
+                                                    <QuickViewGroupElement label="Fax" type="text" value="" visible="false"/>
+                                                </elements>
+                                            </QuickViewGroup>
+                                        </groups>
+                                    </QuickViewPage>
+                                </pages>
+                            </QuickView>
+                        </dependents>
+                    </Link>
+                </items>
+            </VBox>
+            <VBox>
+                <items>
+                    <Title text="Email:" margin-right="0.5rem"/>
+                    <Link text="{email}" class="sapMTitleStyleH2" press="_onFioriObjectPageHeaderContactPress2">
+                        <dependents>
+                            <QuickView placement="Auto">
+                                <pages>
+                                    <QuickViewPage header="Contact Information" icon="sap-icon://person-placeholder" title="{email}" description="Role">
+                                        <groups>
+                                            <QuickViewGroup heading="Contact Details">
+                                                <elements>
+                                                    <QuickViewGroupElement label="Job Title" type="text" value="Job title" visible="true"/>
+                                                    <QuickViewGroupElement label="Department" type="text" value="Department" visible="true"/>
+                                                    <QuickViewGroupElement label="Email" type="email" value="" visible="false"/>
+                                                    <QuickViewGroupElement label="Phone" type="phone" value="" visible="false"/>
+                                                    <QuickViewGroupElement label="Mobile" type="mobile" value="" visible="false"/>
+                                                    <QuickViewGroupElement label="Fax" type="text" value="" visible="false"/>
+                                                </elements>
+                                            </QuickViewGroup>
+                                        </groups>
+                                    </QuickViewPage>
+                                </pages>
+                            </QuickView>
+                        </dependents>
+                    </Link>
+                </items>
+            </VBox>
+        </uxap:headerContent>
+        <uxap:sections>
+            <uxap:ObjectPageSection title="Productos">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Productos">
+                        <uxap:blocks>
+                            <List width="100%" growing="false" growingThreshold="20" growingScrollToLoad="false" backgroundDesign="Solid" items="{path:'Ingrediente', templateShareable:true}">
+                                <items>
+                                    <FeedListItem icon="sap-icon://basket" sender="{ID}" text="{Nombre}" info="{path: 'Precio', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" timestamp="{StockLevel}" iconPress="_onFeedListItemIconPress"/>
+                                </items>
+                            </List>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+        <uxap:footer>
+            <OverflowToolbar design="auto">
+                <content>
+                    <ToolbarSpacer/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </uxap:footer>
+    </uxap:ObjectPageLayout>
+</mvc:View>

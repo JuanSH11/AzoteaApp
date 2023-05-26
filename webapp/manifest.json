@@ -1,0 +1,284 @@
+{
+    "_version": "1.8.0",
+    "sap.app": {
+        "_version": "1.3.0",
+        "id": "com.sap.build.standard.azoteaApp",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.2.2"
+        },
+        "dataSources": {
+            "local": {
+                "uri": "/here/goes/your/serviceUrl/local/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "ach": "ach",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "ui5template.basicSAPUI5ApplicationProject",
+            "version": "1.32.0",
+            "toolsId": "dba9edf5-fadd-485c-82a9-b4eebd8203c6"
+        }
+    },
+    "sap.ui": {
+        "_version": "1.3.0",
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "_version": "1.3.0",
+        "rootView": {
+            "viewName": "generated.app.view.IngresarStock",
+            "type": "XML"
+        },
+        "dependencies": {
+            "minUI5Version": "1.50.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "": {
+                "dataSource": "local",
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "loadMetadataAsync": false,
+                    "json": true,
+                    "bJSON": true,
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "useBatch": true,
+                    "refreshAfterChange": false,
+                    "disableHeadRequestForToken": true
+                }
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "com.sap.build.standard.azoteaApp.view",
+                "controlId": "App",
+                "clearTarget": false,
+                "controlAggregation": "pages",
+                "bypassed": {
+                    "target": [
+                        "ListarPlatos"
+                    ]
+                }
+            },
+            "targets": {
+                "ListarPlatos": {
+                    "controlAggregation": "pages",
+                    "viewName": "ListarPlatos",
+                    "viewId": "ListarPlatos",
+                    "viewLevel": 3,
+                    "transition": "slide"
+                },
+                "VerPlato": {
+                    "controlAggregation": "pages",
+                    "viewName": "VerPlato",
+                    "viewId": "VerPlato",
+                    "viewLevel": 7,
+                    "transition": "slide"
+                },
+                "VerIngrediente": {
+                    "controlAggregation": "pages",
+                    "viewName": "VerIngrediente",
+                    "viewId": "VerIngrediente",
+                    "viewLevel": 8,
+                    "transition": "slide"
+                },
+                "VerProveedor": {
+                    "controlAggregation": "pages",
+                    "viewName": "VerProveedor",
+                    "viewId": "VerProveedor",
+                    "viewLevel": 6,
+                    "transition": "slide"
+                },
+                "Analiticas": {
+                    "controlAggregation": "pages",
+                    "viewName": "Analiticas",
+                    "viewId": "Analiticas",
+                    "viewLevel": 1,
+                    "transition": "slide"
+                },
+                "CrearReview": {
+                    "controlAggregation": "pages",
+                    "viewName": "CrearReview",
+                    "viewId": "CrearReview",
+                    "viewLevel": 1,
+                    "transition": "slide"
+                },
+                "ListarIngredientes": {
+                    "controlAggregation": "pages",
+                    "viewName": "ListarIngredientes",
+                    "viewId": "ListarIngredientes",
+                    "viewLevel": 4,
+                    "transition": "slide"
+                },
+                "ListarProveedores": {
+                    "controlAggregation": "pages",
+                    "viewName": "ListarProveedores",
+                    "viewId": "ListarProveedores",
+                    "viewLevel": 5,
+                    "transition": "slide"
+                },
+                "CrearPlato": {
+                    "controlAggregation": "pages",
+                    "viewName": "CrearPlato",
+                    "viewId": "CrearPlato",
+                    "viewLevel": 11,
+                    "transition": "slide"
+                },
+                "CrearIngrediente": {
+                    "controlAggregation": "pages",
+                    "viewName": "CrearIngrediente",
+                    "viewId": "CrearIngrediente",
+                    "viewLevel": 10,
+                    "transition": "slide"
+                },
+                "CrearProveedor": {
+                    "controlAggregation": "pages",
+                    "viewName": "CrearProveedor",
+                    "viewId": "CrearProveedor",
+                    "viewLevel": 2,
+                    "transition": "slide"
+                },
+                "IngresarStock": {
+                    "controlAggregation": "pages",
+                    "viewName": "IngresarStock",
+                    "viewId": "IngresarStock",
+                    "viewLevel": 9,
+                    "transition": "slide"
+                }
+            },
+            "routes": [
+                {
+                    "pattern": "ListarPlatos/:context:",
+                    "name": "ListarPlatos",
+                    "target": [
+                        "ListarPlatos"
+                    ]
+                },
+                {
+                    "pattern": "",
+                    "name": "default",
+                    "target": [
+                        "ListarPlatos"
+                    ]
+                },
+                {
+                    "pattern": "VerPlato/:context:",
+                    "name": "VerPlato",
+                    "target": [
+                        "VerPlato"
+                    ]
+                },
+                {
+                    "pattern": "VerIngrediente/:context:",
+                    "name": "VerIngrediente",
+                    "target": [
+                        "VerIngrediente"
+                    ]
+                },
+                {
+                    "pattern": "VerProveedor/:context:",
+                    "name": "VerProveedor",
+                    "target": [
+                        "VerProveedor"
+                    ]
+                },
+                {
+                    "pattern": "Analiticas/:context:",
+                    "name": "Analiticas",
+                    "target": [
+                        "Analiticas"
+                    ]
+                },
+                {
+                    "pattern": "CrearReview/:context:",
+                    "name": "CrearReview",
+                    "target": [
+                        "CrearReview"
+                    ]
+                },
+                {
+                    "pattern": "ListarIngredientes/:context:",
+                    "name": "ListarIngredientes",
+                    "target": [
+                        "ListarIngredientes"
+                    ]
+                },
+                {
+                    "pattern": "ListarProveedores/:context:",
+                    "name": "ListarProveedores",
+                    "target": [
+                        "ListarProveedores"
+                    ]
+                },
+                {
+                    "pattern": "CrearPlato/:context:",
+                    "name": "CrearPlato",
+                    "target": [
+                        "CrearPlato"
+                    ]
+                },
+                {
+                    "pattern": "CrearIngrediente/:context:",
+                    "name": "CrearIngrediente",
+                    "target": [
+                        "CrearIngrediente"
+                    ]
+                },
+                {
+                    "pattern": "CrearProveedor/:context:",
+                    "name": "CrearProveedor",
+                    "target": [
+                        "CrearProveedor"
+                    ]
+                },
+                {
+                    "pattern": "IngresarStock/:context:",
+                    "name": "IngresarStock",
+                    "target": [
+                        "IngresarStock"
+                    ]
+                }
+            ]
+        }
+    }
+}
